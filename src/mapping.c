@@ -147,7 +147,7 @@ page_map_retry:
     }
 
     if (error != seL4_NoError) {
-        LOG_ERROR("Failed to map page at address %p with cap %"PRIuPTR", error: %d", vaddr, frame, error);
+        LOG_ERROR("Failed to map page at address %p with cap %u, error: %d", vaddr, frame, error);
     }
     *num_objects = num;
 

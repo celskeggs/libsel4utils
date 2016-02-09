@@ -508,7 +508,7 @@ sel4utils_new_pages_at_vaddr(vspace_t *vspace, void *vaddr, size_t num_pages,
     sel4utils_res_t *res = reservation_to_res(reservation);
 
     if (!check_reservation(data->top_level, res, vaddr, num_pages, size_bits)) {
-        LOG_ERROR("Range for vaddr %p with %"PRIuPTR" 4k pages not reserved!", vaddr, num_pages);
+        LOG_ERROR("Range for vaddr %p with %u 4k pages not reserved!", vaddr, num_pages);
         return -1;
     }
 

@@ -212,7 +212,7 @@ sel4utils_print_fault_message(seL4_MessageInfo_t tag, const char *thread_name)
 
     case SEL4_EXCEPT_IPC_LABEL:
         assert(seL4_MessageInfo_get_length(tag) == SEL4_EXCEPT_IPC_LENGTH);
-        printf("%sBad syscall from [%s]: scno %"PRIuPTR" at PC: %p%s\n",
+        printf("%sBad syscall from [%s]: scno %u at PC: %p%s\n",
                COLOR_ERROR,
                thread_name,
                seL4_GetMR(EXCEPT_IPC_SYS_MR_SYSCALL),
@@ -233,7 +233,7 @@ sel4utils_print_fault_message(seL4_MessageInfo_t tag, const char *thread_name)
 
     default:
         /* What? Why are we here? What just happened? */
-        printf("Unknown fault from [%s]: %"PRIuPTR" (length = %"PRIuPTR")\n", thread_name, seL4_MessageInfo_get_label(tag), seL4_MessageInfo_get_length(tag));
+        printf("Unknown fault from [%s]: %u (length = %u)\n", thread_name, seL4_MessageInfo_get_label(tag), seL4_MessageInfo_get_length(tag));
         break;
     }
 }
